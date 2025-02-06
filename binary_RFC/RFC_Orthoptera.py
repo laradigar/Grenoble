@@ -80,18 +80,34 @@ prefixes_1 = [p for p in prefix_labels if prefix_labels[p] == 1]
 random.shuffle(prefixes_0)
 random.shuffle(prefixes_1)
 
-# Define prefix-level split (instead of file-based split)
-split_ratio = 0.7  # 70% train, 30% validation
+# Define total desired split
+total_train_size = 0.7  # 70% total dataset should be training
+total_valid_size = 0.3  # 30% total dataset should be validation
 
-num_train_1 = int(len(prefixes_1) * split_ratio)
-num_train_0 = int(len(prefixes_0) * split_ratio)
+# Define class proportions within each split
+train_1_ratio = 0.25  # 25% of training should be label 1
+train_0_ratio = 0.75  # 75% of training should be label 0
+valid_1_ratio = 0.25  # 25% of validation should be label 1
+valid_0_ratio = 0.75  # 75% of validation should be label 0
 
+# Compute how many 1s and 0s should be in each set
+num_total = len(prefix_labels)
+num_train = int(num_total * total_train_size)
+num_valid = num_total - num_train  # Remaining goes to validation
+
+num_train_1 = int(num_train * train_1_ratio)
+num_train_0 = num_train - num_train_1
+
+num_valid_1 = int(num_valid * valid_1_ratio)
+num_valid_0 = num_valid - num_valid_1
+
+# Assign the correct number of prefixes for each label
 train_prefixes_1 = set(prefixes_1[:num_train_1])
 train_prefixes_0 = set(prefixes_0[:num_train_0])
 train_prefixes = train_prefixes_1.union(train_prefixes_0)
 
-valid_prefixes_1 = set(prefixes_1[num_train_1:])  # Remaining go to validation
-valid_prefixes_0 = set(prefixes_0[num_train_0:])
+valid_prefixes_1 = set(prefixes_1[num_train_1:num_train_1 + num_valid_1])
+valid_prefixes_0 = set(prefixes_0[num_train_0:num_train_0 + num_valid_0])
 valid_prefixes = valid_prefixes_1.union(valid_prefixes_0)
 
 # Assign files to train/validation
@@ -117,45 +133,6 @@ print(f"Total files: {len(file_names)}")
 print(f"Train: {len(train_files)} ({num_train_1} '1' labels, {num_train_0} '0' labels)")
 print(f"Validation: {len(valid_files)} ({num_valid_1} '1' labels, {num_valid_0} '0' labels)")
 
-#%% Extract features to train model using the Mel-frequency cepstrum
-# This section calculates new features (MFCC) for the files instead of using our previous embeddings
-train_df = pd.read_csv('train_annotations.csv')
-valid_df = pd.read_csv('valid_annotations.csv')
-
-def extract_features(file_path):
-    """Extract MFCC features from an audio file."""
-    try:
-        y, sr = librosa.load(file_path, sr=None)  # Load audio file
-        mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)  # Extract 13 MFCCs
-        mfcc_mean = np.mean(mfcc, axis=1)  # Take the mean across time
-        return mfcc_mean
-    except Exception as e:
-        print(f"Error loading {file_path}: {e}")
-        return None
-
-# Function to extract features for the filenames in a given dataframe
-def add_mfcc_features(df):
-    mfcc_features = []
-
-    for filename in df['filename']:
-        file_path = os.path.join(folder_path, filename)
-        mfcc_features.append(extract_features(file_path))
-
-    # Add MFCC features as columns in the dataframe
-    mfcc_df = pd.DataFrame(mfcc_features, columns=[f"mfcc_{i}" for i in range(13)])
-    return pd.concat([df, mfcc_df], axis=1)
-
-# Add MFCC features to the training and validation dataframes
-train_df_with_features = add_mfcc_features(train_df)
-valid_df_with_features = add_mfcc_features(valid_df)
-
-# Save the updated dataframes to new CSV files
-train_df_with_features.to_csv('train_with_mfcc.csv', index=False)
-valid_df_with_features.to_csv('valid_with_mfcc.csv', index=False)
-
-print("MFCC features added and saved to train_with_mfcc.csv and valid_with_mfcc.csv")
-
-
 #%% Doing a Random Forest model 
 train_df_with_features = pd.read_csv('train_annotations_orthoptera.csv')
 valid_df_with_features = pd.read_csv('valid_annotations_orthoptera.csv') 
@@ -177,3 +154,7 @@ print(f"Validation Accuracy: {accuracy:.4f}")
 
 # Print a full classification report
 print(classification_report(y_valid, y_pred))
+with open('RFC_accuracy_Orthoptera.txt', 'w') as f:
+    f.write(classification_report(y_valid, y_pred))
+print("Classification report saved to RFC_accuracy_Orthoptera.txt")
+

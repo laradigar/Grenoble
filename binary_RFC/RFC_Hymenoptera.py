@@ -17,7 +17,7 @@ import random
 #%% Read CSV file with filenames and groups and make it appropriate as an annotation file
 #groups = ["Anthropophony", "Aves", "Geophony", "Mammalia", "Orthoptera", "Hemiptera", "Diptera", "Hymenoptera", "Anura", "Insecta"]
 
-embeds = pd.read_csv('/Users/laradiazgarcia/Grenoble/Archive/embbedings_with_groups.csv')
+embeds = pd.read_csv('/Users/laradiazgarcia/Desktop/Grenoble/embbedings_with_groups.csv')
 data = pd.DataFrame()
 data["filename"] = embeds["Filename"]
 data = pd.concat([data, embeds.iloc[:, 2:514]], axis=1)
@@ -31,7 +31,7 @@ print(data.head())
 
 #%% Determine which of my files are training data and which are validation data
 random.seed(42)
-folder_path = "/Users/laradiazgarcia/Grenoble/Archive/All"
+folder_path = "/Users/laradiazgarcia/Desktop/Grenoble/All"
 file_names = [f for f in os.listdir(folder_path) if f.endswith('.wav')]
 df = pd.read_csv("/Users/laradiazgarcia/Desktop/Grenoble/binary_RFC/is_hymenoptera.csv")
 
@@ -59,18 +59,34 @@ prefixes_1 = [p for p in prefix_labels if prefix_labels[p] == 1]
 random.shuffle(prefixes_0)
 random.shuffle(prefixes_1)
 
-# Define prefix-level split (instead of file-based split)
-split_ratio = 0.7  # 70% train, 30% validation
+# Define total desired split
+total_train_size = 0.7  # 70% total dataset should be training
+total_valid_size = 0.3  # 30% total dataset should be validation
 
-num_train_1 = int(len(prefixes_1) * split_ratio)
-num_train_0 = int(len(prefixes_0) * split_ratio)
+# Define class proportions within each split
+train_1_ratio = 0.25  # 25% of training should be label 1
+train_0_ratio = 0.75  # 75% of training should be label 0
+valid_1_ratio = 0.25  # 25% of validation should be label 1
+valid_0_ratio = 0.75  # 75% of validation should be label 0
 
+# Compute how many 1s and 0s should be in each set
+num_total = len(prefix_labels)
+num_train = int(num_total * total_train_size)
+num_valid = num_total - num_train  # Remaining goes to validation
+
+num_train_1 = int(num_train * train_1_ratio)
+num_train_0 = num_train - num_train_1
+
+num_valid_1 = int(num_valid * valid_1_ratio)
+num_valid_0 = num_valid - num_valid_1
+
+# Assign the correct number of prefixes for each label
 train_prefixes_1 = set(prefixes_1[:num_train_1])
 train_prefixes_0 = set(prefixes_0[:num_train_0])
 train_prefixes = train_prefixes_1.union(train_prefixes_0)
 
-valid_prefixes_1 = set(prefixes_1[num_train_1:])  # Remaining go to validation
-valid_prefixes_0 = set(prefixes_0[num_train_0:])
+valid_prefixes_1 = set(prefixes_1[num_train_1:num_train_1 + num_valid_1])
+valid_prefixes_0 = set(prefixes_0[num_train_0:num_train_0 + num_valid_0])
 valid_prefixes = valid_prefixes_1.union(valid_prefixes_0)
 
 # Assign files to train/validation
@@ -117,3 +133,6 @@ print(f"Validation Accuracy: {accuracy:.4f}")
 
 # Print a full classification report
 print(classification_report(y_valid, y_pred))
+with open('RFC_accuracy_Hymenoptera.txt', 'w') as f:
+    f.write(classification_report(y_valid, y_pred))
+print("Classification report saved to RFC_accuracy_Hymenoptera.txt")
