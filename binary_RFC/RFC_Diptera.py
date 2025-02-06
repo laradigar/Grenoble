@@ -17,7 +17,7 @@ import random
 #%% Read CSV file with filenames and groups and make it appropriate as an annotation file
 #groups = ["Anthropophony", "Aves", "Geophony", "Mammalia", "Orthoptera", "Hemiptera", "Diptera", "Hymenoptera", "Anura", "Insecta"]
 
-embeds = pd.read_csv('/Users/laradiazgarcia/Desktop/minimalcode/Archive/embbedings_with_groups.csv')
+embeds = pd.read_csv('/Users/laradiazgarcia/Desktop/Grenoble/embbedings_with_groups.csv')
 data = pd.DataFrame()
 data["filename"] = embeds["Filename"]
 data = pd.concat([data, embeds.iloc[:, 2:514]], axis=1)
@@ -31,9 +31,9 @@ print(data.head())
 
 #%% Determine which of my files are training data and which are validation data
 random.seed(42)
-folder_path = "/Users/laradiazgarcia/Desktop/minimalcode/Archive/All"
+folder_path = "/Users/laradiazgarcia/Desktop/Grenoble/All"
 file_names = [f for f in os.listdir(folder_path) if f.endswith('.wav')]
-df = pd.read_csv("/Users/laradiazgarcia/Desktop/minimalcode/Archive/RFC/is_diptera.csv")
+df = pd.read_csv("/Users/laradiazgarcia/Desktop/Grenoble/binary_RFC/is_diptera.csv")
 
 # Extract unique prefixes (everything before beginningtime_endtime)
 file_groups = {}  # {prefix: [list of files]}
