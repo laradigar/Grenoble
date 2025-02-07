@@ -1,8 +1,12 @@
+Total files used: 4453
+Train: 3117 (877 '1' labels, 2240 '0' labels)
+Validation: 1336 (393 '1' labels, 943 '0' labels)
+Validation Accuracy: 0.8825
               precision    recall  f1-score   support
 
-           0       0.14      0.96      0.24        27
-           1       1.00      0.70      0.83       548
+           0       0.86      1.00      0.92       943
+           1       1.00      0.60      0.75       393
 
-    accuracy                           0.72       575
-   macro avg       0.57      0.83      0.53       575
-weighted avg       0.96      0.72      0.80       575
+    accuracy                           0.88      1336
+   macro avg       0.93      0.80      0.84      1336
+weighted avg       0.90      0.88      0.87      1336

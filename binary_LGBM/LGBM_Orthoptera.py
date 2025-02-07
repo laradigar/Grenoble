@@ -34,7 +34,7 @@ print(data.head())
 random.seed(42)
 folder_path = "/Users/laradiazgarcia/Desktop/Grenoble/All"
 file_names = [f for f in os.listdir(folder_path) if f.endswith('.wav')]
-df = pd.read_csv("/Users/laradiazgarcia/Desktop/Grenoble/binary_RFC/is_orthoptera.csv")
+df = pd.read_csv("/Users/laradiazgarcia/Desktop/Grenoble/binary_LGBM/is_orthoptera.csv")
 
 # Extract unique prefixes (everything before beginningtime_endtime)
 file_groups = {}  # {prefix: [list of files]}
@@ -113,7 +113,7 @@ print(f"Total files: {len(file_names)}")
 print(f"Train: {len(train_files)} ({num_train_1} '1' labels, {num_train_0} '0' labels)")
 print(f"Validation: {len(valid_files)} ({num_valid_1} '1' labels, {num_valid_0} '0' labels)")
 
-#%% Doing a Random Forest model 
+#%% Doing a Light Gradient Boosting Machine classifier
 train_df_with_features = pd.read_csv('train_annotations_orthoptera.csv')
 valid_df_with_features = pd.read_csv('valid_annotations_orthoptera.csv') 
 X_train = train_df_with_features.drop(columns=["filename", "is_orthoptera"])
@@ -121,12 +121,12 @@ y_train = train_df_with_features["is_orthoptera"]
 X_valid = valid_df_with_features.drop(columns=["filename", "is_orthoptera"])
 y_valid = valid_df_with_features["is_orthoptera"]
 
-# Initialize and train the RandomForest model
-rf_model = RandomForestClassifier(n_estimators=100, random_state=42)  # 100 trees
-rf_model.fit(X_train, y_train)
+# Initialize and train the Light Gradient Boosting Machine model
+LGBM_model = LGBMClassifier(n_estimators=100, random_state=42)
+LGBM_model.fit(X_train, y_train)
 
 # Make predictions on the validation set
-y_pred = rf_model.predict(X_valid)
+y_pred = LGBM_model.predict(X_valid)
 
 # Evaluate model performance
 accuracy = accuracy_score(y_valid, y_pred)
@@ -134,9 +134,7 @@ print(f"Validation Accuracy: {accuracy:.4f}")
 
 # Print a full classification report
 print(classification_report(y_valid, y_pred))
-with open('RFC_accuracy_Orthoptera.txt', 'w') as f:
+with open('LGBM_accuracy_Orthoptera.txt', 'w') as f:
+    f.write(f"Validation Accuracy: {accuracy:.4f}\n")
     f.write(classification_report(y_valid, y_pred))
-print("Classification report saved to RFC_accuracy_Orthoptera.txt")
-
-LGBM_model = LGBMClassifier(n_estimators=100, random_state=42)
-LGBM_model.fit(X_train, y_train)
+print("Classification report saved to LGBM_accuracy_Orthoptera.txt")

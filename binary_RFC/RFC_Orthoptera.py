@@ -155,6 +155,7 @@ print(f"Validation Accuracy: {accuracy:.4f}")
 # Print a full classification report
 print(classification_report(y_valid, y_pred))
 with open('RFC_accuracy_Orthoptera.txt', 'w') as f:
+    f.write(f"Validation Accuracy: {accuracy:.4f}\n")
     f.write(classification_report(y_valid, y_pred))
 print("Classification report saved to RFC_accuracy_Orthoptera.txt")
 
