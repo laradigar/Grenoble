@@ -57,7 +57,7 @@ random.shuffle(prefixes_0)
 random.shuffle(prefixes_1)
 
 # Target total size
-total_target_size = 4453 + random.randint(-40, 40) # Approximate total count + random factor to consider different datasets
+total_target_size = 4453 + random.randint(-20, 20) # Approximate total count + random factor to consider different datasets
 train_target_size = int(total_target_size * 0.7)  # 70% Train
 valid_target_size = total_target_size - train_target_size  # 30% Validation
 
@@ -169,3 +169,36 @@ with open('RFC_accuracy_singing.txt', 'w') as f:
     f.write(f"Validation Accuracy: {accuracy:.4f}\n")
     f.write(classification_report(y_valid, y_pred))
 print("Classification report saved to RFC_accuracy_singing.txt")
+
+#%% Classification and prediction at whole recording level
+predicts = pd.DataFrame({"filename": valid_df_with_features.filename, "y_true": y_valid, "y_pred": y_pred})
+predicts.to_csv('predictions_singing.csv', index=False)
+
+# Load predictions and ground truth
+df = pd.read_csv("predictions_singing.csv")  # Ensure it contains: filename, y_true, y_pred
+
+# Function to extract prefix from filename
+def extract_prefix(filename):
+    return "_".join(filename.split("_")[:-3])  # Remove everything after the last 2 underscores
+
+# Add a prefix column
+df["prefix"] = df["filename"].apply(extract_prefix)
+
+# Aggregate predictions: If any segment is predicted as 1, the whole prefix is 1
+grouped_predictions = df.groupby("prefix")["y_pred"].max().reset_index()
+grouped_truth = df.groupby("prefix")["y_true"].max().reset_index()
+
+# Merge grouped data to compare predictions vs. true labels
+final_eval_df = grouped_truth.merge(grouped_predictions, on="prefix")
+
+# Compute evaluation metrics
+print("Classification Report (Prefix-Level Evaluation):")
+accuracy = accuracy_score(final_eval_df["y_true"], final_eval_df["y_pred"])
+print(f"Validation Accuracy: {accuracy:.4f}")
+print(classification_report(final_eval_df["y_true"], final_eval_df["y_pred"]))
+
+with open('RFC_accuracy_wholeaudio_singing.txt', 'w') as f:
+    f.write("(Prefix-Level Evaluation) \n")
+    f.write(f"Validation Accuracy: {accuracy:.4f}\n")
+    f.write(classification_report(final_eval_df["y_true"], final_eval_df["y_pred"]))
+print("Classification report saved to RFC_accuracy_wholeaudio_singing.txt")
