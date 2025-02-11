@@ -1,4 +1,5 @@
-#%% Import modules and libraries
+#%% 
+# Import modules and libraries
 import torch
 import torchaudio
 import pandas as pd
@@ -10,13 +11,14 @@ import torch.nn as nn
 import librosa
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score, classification_report, f1_score
 import matplotlib.pyplot as plt
 import joblib
 import random
 
-#%% Read CSV file with filenames and groups and make it appropriate as an annotation file
-#groups = ["Anthropophony", "Aves", "Geophony", "Mammalia", "Orthoptera", "Hemiptera", "Diptera", "Hymenoptera", "Anura", "Insecta"]
+#%% 
+# Read CSV file with filenames and groups and create annotations file
+# groups = ["Anthropophony", "Aves", "Geophony", "Mammalia", "Orthoptera", "Hemiptera", "Diptera", "Hymenoptera", "Anura", "Insecta"]
 
 embeds = pd.read_csv('/Users/laradiazgarcia/Desktop/Grenoble/embbedings_with_groups.csv')
 data = pd.DataFrame()
@@ -30,7 +32,8 @@ data.to_csv('is_singing.csv', index=False)
 # Print results
 print(data.head())
 
-#%% New way to divide the files to ensure 70/30 and 75/25 splits
+#%% 
+# Divide the files to ensure 70/30 and 75/25 splits
 df = pd.read_csv("/Users/laradiazgarcia/Desktop/Grenoble/binary_RFC/is_singing.csv")
 
 # Group files by prefix
@@ -119,7 +122,8 @@ num_valid_1 = sum(df_valid["is_singing"] == 1)
 print(f"Train set: {len(train_files)} files ({num_train_0} class 0, {num_train_1} class 1)")
 print(f"Validation set: {len(valid_files)} files ({num_valid_0} class 0, {num_valid_1} class 1)")
 
-#%% Doing a Random Forest model 
+#%% 
+# Doing a Random Forest model for binary classification
 train_df_with_features = pd.read_csv('train_annotations_singing.csv')
 valid_df_with_features = pd.read_csv('valid_annotations_singing.csv') 
 
@@ -152,7 +156,10 @@ rf_model = RandomForestClassifier(n_estimators=100, random_state=42)  # 100 tree
 rf_model.fit(X_train, y_train)
 
 # Make predictions on the validation set
-y_pred = rf_model.predict(X_valid)
+#y_pred = rf_model.predict(X_valid)
+threshold = 0.5
+y_pred = rf_model.predict_proba(X_valid)
+y_pred = (y_pred[:, 1] >= threshold).astype(int)
 
 # Evaluate model performance
 accuracy = accuracy_score(y_valid, y_pred)
@@ -170,7 +177,8 @@ with open('RFC_accuracy_singing.txt', 'w') as f:
     f.write(classification_report(y_valid, y_pred))
 print("Classification report saved to RFC_accuracy_singing.txt")
 
-#%% Classification and prediction at whole recording level
+#%% 
+# Classification and prediction at whole recording level
 predicts = pd.DataFrame({"filename": valid_df_with_features.filename, "y_true": y_valid, "y_pred": y_pred})
 predicts.to_csv('predictions_singing.csv', index=False)
 
@@ -202,3 +210,81 @@ with open('RFC_accuracy_wholeaudio_singing.txt', 'w') as f:
     f.write(f"Validation Accuracy: {accuracy:.4f}\n")
     f.write(classification_report(final_eval_df["y_true"], final_eval_df["y_pred"]))
 print("Classification report saved to RFC_accuracy_wholeaudio_singing.txt")
+
+#%% 
+# Determine the best classification threshold to optimise recall score
+best_threshold = 0
+best_recall = 0
+best_accuracy = 0
+# List to store thresholds and their corresponding recalls scores for plotting
+thresholds = np.arange(0.0, 1.05, 0.05)
+recall_scores = []
+accuracy_scores = []
+y_pred_prob = rf_model.predict_proba(X_valid)[:, 1]
+
+for threshold in thresholds:
+    # Convert probabilities to binary predictions using the current threshold
+    y_pred = (y_pred_prob >= threshold).astype(int)
+    
+    # Calculate recall and acuracy score for this threshold
+    current_recall = recall_score(y_valid, y_pred)
+    recall_scores.append(current_recall)
+    current_accuracy = accuracy_score(y_valid, y_pred)
+    accuracy_scores.append(current_accuracy)
+
+    # Track the best threshold based on recall score
+    if current_recall > best_recall:
+        best_recall = current_recall
+        best_threshold = threshold
+        best_accuracy = accuracy
+
+
+# Print the best threshold and its corresponding recall score
+print(f"Best threshold: {best_threshold}")
+print(f"Best recall score: {best_recall}")
+print(f"Accuracy for best recall: {best_accuracy}")
+# Plot recall scores across different thresholds
+plt.plot(thresholds, recall_scores, marker='.')
+plt.xlabel('Threshold')
+plt.ylabel('recall Score')
+plt.title('recall Score vs. Threshold')
+plt.grid(True)
+plt.show()
+
+#%% 
+# Alternatively, determine threshold for optimal f1 score
+y_pred_prob = rf_model.predict_proba(X_valid)[:, 1]  # Probabilities for the positive class (class 1)
+
+# Initialize variables to store the best threshold and score
+best_threshold = 0
+best_f1 = 0
+
+# List to store thresholds and their corresponding F1 scores for plotting
+thresholds = np.arange(0.0, 1.05, 0.05)
+f1_scores = []
+
+# Loop over threshold values from 0 to 1
+for threshold in thresholds:
+    # Convert probabilities to binary predictions using the current threshold
+    y_pred = (y_pred_prob >= threshold).astype(int)
+    
+    # Calculate F1 score for this threshold
+    current_f1 = f1_score(y_valid, y_pred)
+    f1_scores.append(current_f1)
+    
+    # Track the best threshold based on F1 score
+    if current_f1 > best_f1:
+        best_f1 = current_f1
+        best_threshold = threshold
+
+# Print the best threshold and its corresponding F1 score
+print(f"Best threshold: {best_threshold}")
+print(f"Best F1 score: {best_f1}")
+
+# Plot F1 scores across different thresholds
+plt.plot(thresholds, f1_scores, marker='o')
+plt.xlabel('Threshold')
+plt.ylabel('F1 Score')
+plt.title('F1 Score vs. Threshold')
+plt.grid(True)
+plt.show()

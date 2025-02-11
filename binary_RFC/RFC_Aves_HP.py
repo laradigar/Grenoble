@@ -81,12 +81,16 @@ num_valid_1 = int(num_valid * valid_1_ratio)
 num_valid_0 = num_valid - num_valid_1
 
 # Assign the correct number of prefixes for each label
-train_prefixes_1 = set(prefixes_1[:num_train_1])
-train_prefixes_0 = set(prefixes_0[:num_train_0])
+duplicates = pd.read_csv("/Users/laradiazgarcia/Desktop/Grenoble/binary_RFC/duplicates.csv", header=None)  
+duplicates = duplicates.rename(columns={0: "prefix"})
+duplicate_prefixes = set(duplicates["prefix"])
+
+train_prefixes_1 = set(prefixes_1[:num_train_1]) - duplicate_prefixes
+train_prefixes_0 = set(prefixes_0[:num_train_0]) - duplicate_prefixes
 train_prefixes = train_prefixes_1.union(train_prefixes_0)
 
-valid_prefixes_1 = set(prefixes_1[num_train_1:num_train_1 + num_valid_1])
-valid_prefixes_0 = set(prefixes_0[num_train_0:num_train_0 + num_valid_0])
+valid_prefixes_1 = set(prefixes_1[num_train_1:num_train_1 + num_valid_1]) - duplicate_prefixes
+valid_prefixes_0 = set(prefixes_0[num_train_0:num_train_0 + num_valid_0]) - duplicate_prefixes
 valid_prefixes = valid_prefixes_1.union(valid_prefixes_0)
 
 # Assign files to train/validation
@@ -107,7 +111,11 @@ num_train_1 = sum(df_train['is_aves'] == 1)
 num_train_0 = sum(df_train['is_aves'] == 0)
 num_valid_1 = sum(df_valid['is_aves'] == 1)
 num_valid_0 = sum(df_valid['is_aves'] == 0)
+removed_train = len(set(prefixes_1[:num_train_1]) | set(prefixes_0[:num_train_0])) - len(train_prefixes)
+removed_valid = len(set(prefixes_1[num_train_1:num_train_1 + num_valid_1]) | set(prefixes_0[num_train_0:num_train_0 + num_valid_0])) - len(valid_prefixes)
 
+print(f"Removed {removed_train} prefixes from training due to duplication.")
+print(f"Removed {removed_valid} prefixes from validation due to duplication.")
 print(f"Total files: {len(file_names)}")
 print(f"Train: {len(train_files)} ({num_train_1} '1' labels, {num_train_0} '0' labels)")
 print(f"Validation: {len(valid_files)} ({num_valid_1} '1' labels, {num_valid_0} '0' labels)")

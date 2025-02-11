@@ -10,7 +10,7 @@ import torch.nn as nn
 import librosa
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score, classification_report, f1_score, recall_score
 import matplotlib.pyplot as plt
 import joblib
 import random
@@ -94,9 +94,16 @@ for prefix in prefixes_1:
         valid_prefixes_1.append(prefix)
         valid_1_count += len(file_groups[prefix])
 
+#avoid duplicates
+duplicates = pd.read_csv("/Users/laradiazgarcia/Desktop/Grenoble/binary_RFC/duplicates.csv", header=None)  
+duplicates = duplicates.rename(columns={0: "prefix"})
+duplicate_prefixes = set(duplicates["prefix"])
+
 # Combine sets
 train_prefixes = set(train_prefixes_0 + train_prefixes_1)
+train_prefixes = train_prefixes.difference(duplicate_prefixes)
 valid_prefixes = set(valid_prefixes_0 + valid_prefixes_1)
+valid_prefixes = valid_prefixes.difference(duplicate_prefixes)
 
 # Get all files in each dataset
 train_files = [f for prefix in train_prefixes for f in file_groups[prefix]]
@@ -116,9 +123,8 @@ num_train_1 = sum(df_train["is_aves"] == 1)
 num_valid_0 = sum(df_valid["is_aves"] == 0)
 num_valid_1 = sum(df_valid["is_aves"] == 1)
 
-print(f"Train set: {len(train_files)} files ({num_train_0} class 0, {num_train_1} class 1)")
-print(f"Validation set: {len(valid_files)} files ({num_valid_0} class 0, {num_valid_1} class 1)")
-
+print(f"Train: {len(train_files)} files ({num_train_0}  0, {num_train_1} class 1)")
+print(f"Validation: {len(train_files)} ({num_train_1} '1' labels, {num_train_0} '0' labels)\n")
 
 #%% Doing a Random Forest model 
 train_df_with_features = pd.read_csv('train_annotations_aves.csv')
@@ -152,8 +158,11 @@ y_valid = valid_df_with_features["is_aves"]
 rf_model = RandomForestClassifier(n_estimators=100, random_state=42)  # 100 trees
 rf_model.fit(X_train, y_train)
 
-# Make predictions on the validation set
+# Make predictions on the validation set with a threshold
 y_pred = rf_model.predict(X_valid)
+#threshold = 0.5
+#y_pred = rf_model.predict_proba(X_valid)
+#y_pred = (y_pred[:, 1] >= threshold).astype(int)
 
 # Evaluate model performance
 accuracy = accuracy_score(y_valid, y_pred)
@@ -203,3 +212,73 @@ with open('RFC_accuracy_wholeaudio_aves.txt', 'w') as f:
     f.write(f"Validation Accuracy: {accuracy:.4f}\n")
     f.write(classification_report(final_eval_df["y_true"], final_eval_df["y_pred"]))
 print("Classification report saved to RFC_accuracy_wholeaudio_aves.txt")
+
+#%% Determine the best classification threshold to optimise recall score
+best_threshold = 0
+best_recall = 0
+# List to store thresholds and their corresponding recalls scores for plotting
+thresholds = np.arange(0.50, 8, 0.01)
+recall_scores = []
+y_pred_prob = rf_model.predict_proba(X_valid)[:, 1]
+
+for threshold in thresholds:
+    # Convert probabilities to binary predictions using the current threshold
+    y_pred = (y_pred_prob >= threshold).astype(int)
+    
+    # Calculate F1 score for this threshold
+    current_recall = recall_score(y_valid, y_pred)
+    recall_scores.append(current_recall)
+    
+    # Track the best threshold based on F1 score
+    if current_recall > best_recall:
+        best_recall = current_recall
+        best_threshold = threshold
+
+# Print the best threshold and its corresponding F1 score
+print(f"Best threshold: {best_threshold}")
+print(f"Best recall score: {best_recall}")
+# Plot F1 scores across different thresholds
+plt.plot(thresholds, recall_scores, marker='o')
+plt.xlabel('Threshold')
+plt.ylabel('recall Score')
+plt.title('recall Score vs. Threshold')
+plt.grid(True)
+plt.show()
+
+#%% 
+# Alternatively, determine threshold for optimal f1 score
+y_pred_prob = rf_model.predict_proba(X_valid)[:, 1]  # Probabilities for the positive class (class 1)
+
+# Initialize variables to store the best threshold and score
+best_threshold = 0
+best_f1 = 0
+
+# List to store thresholds and their corresponding F1 scores for plotting
+thresholds = np.arange(0.0, 1.05, 0.05)
+f1_scores = []
+
+# Loop over threshold values from 0 to 1
+for threshold in thresholds:
+    # Convert probabilities to binary predictions using the current threshold
+    y_pred = (y_pred_prob >= threshold).astype(int)
+    
+    # Calculate F1 score for this threshold
+    current_f1 = f1_score(y_valid, y_pred)
+    f1_scores.append(current_f1)
+    
+    # Track the best threshold based on F1 score
+    if current_f1 > best_f1:
+        best_f1 = current_f1
+        best_threshold = threshold
+
+# Print the best threshold and its corresponding F1 score
+print(f"Best threshold: {best_threshold}")
+print(f"Best F1 score: {best_f1}")
+
+# Plot F1 scores across different thresholds
+plt.plot(thresholds, f1_scores, marker='o')
+plt.xlabel('Threshold')
+plt.ylabel('F1 Score')
+plt.title('F1 Score vs. Threshold')
+plt.grid(True)
+plt.show()
