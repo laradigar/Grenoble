@@ -1,10 +1,10 @@
 (Prefix-Level Evaluation) 
-Validation Accuracy: 0.9179
+Validation Accuracy: 0.9104
               precision    recall  f1-score   support
 
-           0       0.98      0.90      0.94        94
-           1       0.81      0.95      0.87        40
+           0       0.89      1.00      0.94        94
+           1       1.00      0.70      0.82        40
 
-    accuracy                           0.92       134
-   macro avg       0.89      0.93      0.91       134
-weighted avg       0.93      0.92      0.92       134
+    accuracy                           0.91       134
+   macro avg       0.94      0.85      0.88       134
+weighted avg       0.92      0.91      0.91       134

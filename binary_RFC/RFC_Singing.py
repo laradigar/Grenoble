@@ -11,7 +11,7 @@ import torch.nn as nn
 import librosa
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report, f1_score
+from sklearn.metrics import accuracy_score, classification_report, f1_score, recall_score
 import matplotlib.pyplot as plt
 import joblib
 import random
@@ -101,6 +101,13 @@ for prefix in prefixes_1:
 train_prefixes = set(train_prefixes_0 + train_prefixes_1)
 valid_prefixes = set(valid_prefixes_0 + valid_prefixes_1)
 
+#avoid duplicates
+duplicates = pd.read_csv("/Users/laradiazgarcia/Desktop/Grenoble/binary_RFC/duplicates.csv", header=None)  
+duplicates = duplicates.rename(columns={0: "prefix"})
+duplicate_prefixes = set(duplicates["prefix"])
+train_prefixes = train_prefixes.difference(duplicate_prefixes)
+valid_prefixes = valid_prefixes.difference(duplicate_prefixes)
+
 # Get all files in each dataset
 train_files = [f for prefix in train_prefixes for f in file_groups[prefix]]
 valid_files = [f for prefix in valid_prefixes for f in file_groups[prefix]]
@@ -157,7 +164,7 @@ rf_model.fit(X_train, y_train)
 
 # Make predictions on the validation set
 #y_pred = rf_model.predict(X_valid)
-threshold = 0.5
+threshold = 0.4
 y_pred = rf_model.predict_proba(X_valid)
 y_pred = (y_pred[:, 1] >= threshold).astype(int)
 
@@ -179,6 +186,9 @@ print("Classification report saved to RFC_accuracy_singing.txt")
 
 #%% 
 # Classification and prediction at whole recording level
+threshold = 0.54
+y_pred = rf_model.predict_proba(X_valid)
+y_pred = (y_pred[:, 1] >= threshold).astype(int)
 predicts = pd.DataFrame({"filename": valid_df_with_features.filename, "y_true": y_valid, "y_pred": y_pred})
 predicts.to_csv('predictions_singing.csv', index=False)
 
@@ -212,47 +222,7 @@ with open('RFC_accuracy_wholeaudio_singing.txt', 'w') as f:
 print("Classification report saved to RFC_accuracy_wholeaudio_singing.txt")
 
 #%% 
-# Determine the best classification threshold to optimise recall score
-best_threshold = 0
-best_recall = 0
-best_accuracy = 0
-# List to store thresholds and their corresponding recalls scores for plotting
-thresholds = np.arange(0.0, 1.05, 0.05)
-recall_scores = []
-accuracy_scores = []
-y_pred_prob = rf_model.predict_proba(X_valid)[:, 1]
-
-for threshold in thresholds:
-    # Convert probabilities to binary predictions using the current threshold
-    y_pred = (y_pred_prob >= threshold).astype(int)
-    
-    # Calculate recall and acuracy score for this threshold
-    current_recall = recall_score(y_valid, y_pred)
-    recall_scores.append(current_recall)
-    current_accuracy = accuracy_score(y_valid, y_pred)
-    accuracy_scores.append(current_accuracy)
-
-    # Track the best threshold based on recall score
-    if current_recall > best_recall:
-        best_recall = current_recall
-        best_threshold = threshold
-        best_accuracy = accuracy
-
-
-# Print the best threshold and its corresponding recall score
-print(f"Best threshold: {best_threshold}")
-print(f"Best recall score: {best_recall}")
-print(f"Accuracy for best recall: {best_accuracy}")
-# Plot recall scores across different thresholds
-plt.plot(thresholds, recall_scores, marker='.')
-plt.xlabel('Threshold')
-plt.ylabel('recall Score')
-plt.title('recall Score vs. Threshold')
-plt.grid(True)
-plt.show()
-
-#%% 
-# Alternatively, determine threshold for optimal f1 score
+# Determine threshold for optimal f1 score
 y_pred_prob = rf_model.predict_proba(X_valid)[:, 1]  # Probabilities for the positive class (class 1)
 
 # Initialize variables to store the best threshold and score
@@ -282,9 +252,47 @@ print(f"Best threshold: {best_threshold}")
 print(f"Best F1 score: {best_f1}")
 
 # Plot F1 scores across different thresholds
-plt.plot(thresholds, f1_scores, marker='o')
+plt.plot(thresholds, f1_scores, marker='.')
 plt.xlabel('Threshold')
 plt.ylabel('F1 Score')
 plt.title('F1 Score vs. Threshold')
+plt.grid(True)
+plt.show()
+
+#%% 
+# Alternatively, determine threshold for optimal accuracy
+y_pred_prob = rf_model.predict_proba(X_valid)[:, 1]  # Probabilities for the positive class (class 1)
+
+# Initialize variables to store the best threshold and score
+best_threshold = 0
+best_acc = 0
+
+# List to store thresholds and their corresponding accuracy scores for plotting
+thresholds = np.arange(0.0, 1.05, 0.05)
+acc_scores = []
+
+# Loop over threshold values from 0 to 1
+for threshold in thresholds:
+    # Convert probabilities to binary predictions using the current threshold
+    y_pred = (y_pred_prob >= threshold).astype(int)
+    
+    # Calculate accuracy score for this threshold
+    current_acc = accuracy_score(y_valid, y_pred)
+    acc_scores.append(current_acc)
+    
+    # Track the best threshold based on accuracy score
+    if current_acc > best_acc:
+        best_acc = current_acc
+        best_threshold = threshold
+
+# Print the best threshold and its corresponding accuracy score
+print(f"Best threshold: {best_threshold}")
+print(f"Best accuracy: {best_acc}")
+
+# Plot accuracy scores across different thresholds
+plt.plot(thresholds, acc_scores, marker='.')
+plt.xlabel('Threshold')
+plt.ylabel('Accuracy Score')
+plt.title('Accuracy Score vs. Threshold')
 plt.grid(True)
 plt.show()
