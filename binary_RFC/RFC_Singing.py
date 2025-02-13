@@ -164,11 +164,14 @@ rf_model.fit(X_train, y_train)
 
 # Make predictions on the validation set
 #y_pred = rf_model.predict(X_valid)
-threshold = 0.4
+threshold = 0.5
 y_pred = rf_model.predict_proba(X_valid)
 y_pred = (y_pred[:, 1] >= threshold).astype(int)
 
+final_eval_df = pd.DataFrame({"y_true": y_valid, "y_pred": y_pred})
 # Evaluate model performance
+# Counting the number of false positives to see if there's any even though precision is 1.00
+print(final_eval_df.groupby("y_pred")["y_true"].value_counts())
 accuracy = accuracy_score(y_valid, y_pred)
 print(f"Validation Accuracy: {accuracy:.4f}")
 
@@ -186,6 +189,7 @@ print("Classification report saved to RFC_accuracy_singing.txt")
 
 #%% 
 # Classification and prediction at whole recording level
+# A threshold of 0.54 already brings the precision back up to 1.00
 threshold = 0.54
 y_pred = rf_model.predict_proba(X_valid)
 y_pred = (y_pred[:, 1] >= threshold).astype(int)
@@ -201,6 +205,9 @@ def extract_prefix(filename):
 
 # Add a prefix column
 df["prefix"] = df["filename"].apply(extract_prefix)
+# Propagate y_true and y_pred within each prefix
+df["y_true"] = df.groupby("prefix")["y_true"].transform("max")
+df["y_pred"] = df.groupby("prefix")["y_pred"].transform("max")
 
 # Aggregate predictions: If any segment is predicted as 1, the whole prefix is 1
 grouped_predictions = df.groupby("prefix")["y_pred"].max().reset_index()
@@ -211,6 +218,8 @@ final_eval_df = grouped_truth.merge(grouped_predictions, on="prefix")
 
 # Compute evaluation metrics
 print("Classification Report (Prefix-Level Evaluation):")
+# Counting the number of false positives to see why our precision is decreasing
+print(final_eval_df.groupby("y_pred")["y_true"].value_counts())
 accuracy = accuracy_score(final_eval_df["y_true"], final_eval_df["y_pred"])
 print(f"Validation Accuracy: {accuracy:.4f}")
 print(classification_report(final_eval_df["y_true"], final_eval_df["y_pred"]))

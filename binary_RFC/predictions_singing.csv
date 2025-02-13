@@ -31,7 +31,7 @@ Aves_229Seix09FR_23VI2022_0009_split_50_55.wav,0,0
 Aves_100Boussa31FR_18VI2019_0000_split_40_45.wav,1,0
 Aves_134Montou31FR_28V2020_0700_split_25_30.wav,0,0
 Aves_8Benque31FR_28V2020_0700_split_45_50.wav,0,0
-Hemiptera_cobocol00ES_25VI2023_1251_split_30_35.wav,1,1
+Hemiptera_cobocol00ES_25VI2023_1251_split_30_35.wav,1,0
 Aves_170StAndre31FR_29V2020_0000_split_25_30.wav,0,0
 Aves_KrDe_ElWi00PL_29IV2014_4615_split_45_50.wav,0,0
 Aves_StFi_SiFi00FI_06V2013_4609_split_70_75.wav,0,0
@@ -73,7 +73,6 @@ Orthoptera_DaSa_CoCoSei09FR_08X2023_1692_split_10_15.wav,1,1
 Aves_134Montou31FR_28V2020_0700_split_30_35.wav,0,0
 Aves_StFi_SiFi00FI_06V2013_4609_split_25_30.wav,0,0
 Aves_230Seix09FR_23VI2022_0709_split_10_15.wav,0,0
-Aves_JoCa_CrDe00ES_26V2012_4565_split_0_5.wav,0,0
 Aves_107Terreb31FR_28V2020_0700_split_40_45.wav,0,0
 Aves_LaLa_KuMa00PL_12V2012_4589_split_25_30.wav,0,0
 Aves_152Aurign31FR_29V2020_0700_split_55_60.wav,0,0
@@ -88,9 +87,7 @@ Aves_33StAndre31FR_25IV2019_0700_split_10_15.wav,0,0
 Aves_183Aurade32FR_03VI2022_1300_split_25_30.wav,1,0
 Aves_83Boussa31FR_18VI2019_0700_split_15_20.wav,1,0
 Aves_185Barjac09FR_15VI2022_0700_split_30_35.wav,0,0
-Aves_ElA_ElHe00NO_03VI2013_4574_split_5_10.wav,0,0
 Aves_35Eoux31FR_17VI2019_0700_split_0_5.wav,0,0
-Aves_JoCa_CrDe00ES_26V2012_4565_split_60_65.wav,0,0
 Aves_95Boussa31FR_22IV2019_0700_split_40_45.wav,0,0
 Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_105_110.wav,1,1
 Aves_33StAndre31FR_25IV2019_0700_split_40_45.wav,0,0
@@ -155,7 +152,6 @@ Aves_223Orlu09FR_28VI2022_0006_split_10_15.wav,0,0
 Aves_147Peyrou31FR_29V2020_1300_split_40_45.wav,0,0
 Aves_33StAndre31FR_25IV2019_0700_split_50_55.wav,0,0
 Orthoptera_DaSa_EsCaMon00ES_25IX2023_1635_split_70_75.wav,1,1
-Aves_ElA_ElHe00NO_03VI2013_4574_split_40_45.wav,0,0
 Aves_ToWh_EaDe00_16IV2015_4658_split_5_10.wav,0,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_145_150.wav,1,1
 Hemiptera_cagrcer00ES_25VI2023_1256_split_30_33.wav,1,1
@@ -180,11 +176,10 @@ Aves_93Cassag31FR_18V2021_1300_split_0_5.wav,0,0
 Aves_PeBo_UiPo00BE_20V2007_4690_split_35_40.wav,0,0
 Aves_22Samoui31FR_03V2021_0000_split_20_25.wav,0,0
 Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_110_115.wav,1,1
-Aves_136Alan31FR_29V2020_0000_split_35_40.wav,1,1
+Aves_136Alan31FR_29V2020_0000_split_35_40.wav,1,0
 Aves_KrDe_ElWi00PL_29IV2014_4615_split_15_20.wav,0,0
 Aves_HaGr_BlBl00NL_10IX1992_4530_split_0_5.wav,0,0
 Aves_147Peyrou31FR_29V2020_1300_split_15_20.wav,0,0
-Aves_Yves_XXXX00FR_21V2021_4560_split_0_5.wav,0,0
 Aves_KrDe_AwSw00PL_16VII2014_4613_split_120_125.wav,0,0
 Aves_200Sentei09FR_17VI2022_0652_split_15_20.wav,0,0
 Aves_137Alan31FR_29V2020_0700_split_55_60.wav,0,0
@@ -247,13 +242,12 @@ Aves_59Boussa31FR_17VI2019_0700_split_0_5.wav,0,0
 Orthoptera_rnraaul65FR_17VII2024_1614_split_25_30.wav,1,1
 Aves_75Benque31FR_29V2020_1300_split_20_25.wav,0,0
 Aves_KrDe_AwSw00PL_16VII2014_4613_split_80_85.wav,1,0
-Aves_73Benque31FR_29V2020_0000_split_10_15.wav,1,0
+Aves_73Benque31FR_29V2020_0000_split_10_15.wav,1,1
 Aves_22Samoui31FR_03V2021_0000_split_10_15.wav,0,0
 Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_55_60.wav,1,0
 Aves_95Boussa31FR_22IV2019_0700_split_50_55.wav,0,0
 Aves_StFi_SiFi00FI_06V2013_4609_split_35_40.wav,0,0
 Aves_100Boussa31FR_18VI2019_0000_split_50_55.wav,1,0
-Aves_JoCa_CrDe00ES_26V2012_4565_split_35_40.wav,0,0
 Aves_103Terreb31FR_28V2020_0000_split_30_35.wav,0,0
 Aves_188Franco31FR_17VI2022_0700_split_25_30.wav,0,0
 Aves_157StElix-31FR_29V2020_0000_split_5_10.wav,1,0
@@ -272,7 +266,6 @@ Orthoptera_DaSa_ReAnSah00ES_28IX2023_1645_split_45_50.wav,1,1
 Aves_213Cassou09FR_07VII2022_1309_split_55_60.wav,1,0
 Aves_237Montse09FR_29VI2022_1253_split_40_45.wav,0,0
 Orthoptera_DaSa_CoCoSei09FR_08X2023_1693_split_30_35.wav,1,1
-Aves_JoCa_CrDe00ES_26V2012_4565_split_65_70.wav,0,0
 Orthoptera_DaSa_LePoMon09FR_15VII2023_1347_split_20_25.wav,1,1
 Aves_230Seix09FR_23VI2022_0709_split_50_55.wav,0,0
 Aves_KlCo_Mell00DE_25VII1978_4685_split_105_110.wav,0,0
@@ -282,8 +275,7 @@ Aves_96Boussa31FR_22IV2019_1300_split_35_40.wav,0,0
 Aves_St_Frih00NO_26V2013_4593_split_20_25.wav,0,0
 Aves_94Boussa31FR_22IV2019_0000_split_0_5.wav,0,0
 Aves_KrDe_ElWi00PL_29IV2014_4615_split_10_15.wav,0,0
-Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1367_split_80_85.wav,1,1
-Aves_JoCa_CrDe00ES_26V2012_4565_split_20_25.wav,0,0
+Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1367_split_80_85.wav,1,0
 Orthoptera_DaSa_ReAnSah00ES_28IX2023_1645_split_125_130.wav,1,1
 Hemiptera_pafiiso00ES_25VI2023_1244_split_5_10.wav,1,1
 Aves_PeBo_UiPo00BE_20V2007_4690_split_50_55.wav,0,0
@@ -319,7 +311,7 @@ Aves_124Montou31FR_28V2020_0000_split_0_5.wav,0,0
 Orthoptera_DaSa_VaLoSau09FR_05IX2023_1578_split_85_90.wav,1,1
 Aves_81Cassag31FR_14V2019_0700_split_25_30.wav,0,0
 Aves_230Seix09FR_23VI2022_0709_split_15_20.wav,0,0
-Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_45_50.wav,1,1
+Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_45_50.wav,1,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_175_180.wav,1,0
 Aves_170StAndre31FR_29V2020_0000_split_45_50.wav,0,0
 Aves_110Cassag31FR_22V2019_0700_split_30_35.wav,0,0
@@ -328,7 +320,6 @@ Aves_8Benque31FR_28V2020_0700_split_25_30.wav,0,0
 Aves_110Cassag31FR_22V2019_0700_split_25_30.wav,0,0
 Aves_100Boussa31FR_18VI2019_0000_split_55_60.wav,1,0
 Orthoptera_DaSa_VaLoSau09FR_05IX2023_1578_split_50_55.wav,1,1
-Aves_ToWu_StSa00DE_XXXXXXXX_4571_split_0_5.wav,0,0
 Orthoptera_DaSa_EmMeLFu00ES_26IX2023_1636_split_70_75.wav,1,1
 Aves_70StAndre31FR_28V2020_1300_split_5_10.wav,0,0
 Aves_110Cassag31FR_22V2019_0700_split_40_45.wav,0,0
@@ -346,11 +337,10 @@ Aves_8Benque31FR_28V2020_0700_split_0_5.wav,0,0
 Aves_94Boussa31FR_22IV2019_0000_split_30_35.wav,0,0
 Aves_23Samoui31FR_03V2021_0700_split_30_35.wav,0,0
 Aves_KlCo_Mell00DE_25VII1978_4685_split_30_35.wav,0,0
-Aves_73Benque31FR_29V2020_0000_split_20_25.wav,1,1
+Aves_73Benque31FR_29V2020_0000_split_20_25.wav,1,0
 Orthoptera_DaSa_LePoMon09FR_15VII2023_1347_split_40_45.wav,1,1
 Aves_MiPe_GaNe00DE_29V2014_4636_split_85_90.wav,0,0
 Aves_83Boussa31FR_18VI2019_0700_split_45_50.wav,0,0
-Aves_ElA_ElHe00NO_03VI2013_4574_split_15_20.wav,0,0
 Aves_81Cassag31FR_14V2019_0700_split_20_25.wav,0,0
 Aves_224Orlu09FR_28VI2022_0706_split_5_10.wav,0,0
 Aves_22Samoui31FR_03V2021_0000_split_50_55.wav,0,0
@@ -360,7 +350,6 @@ Aves_157StElix-31FR_29V2020_0000_split_0_5.wav,1,0
 Aves_StFi_SiFi00FI_06V2013_4609_split_100_105.wav,0,0
 Aves_136Alan31FR_29V2020_0000_split_0_5.wav,1,1
 Aves_41Benque31FR_17VI2019_0700_split_5_10.wav,0,0
-Aves_JoCa_CrDe00ES_26V2012_4565_split_5_10.wav,0,0
 Aves_205Ustou09FR_28VI2022_0006_split_30_35.wav,0,0
 Aves_53StAndre31FR_25IV2019_0000_split_30_35.wav,0,0
 Aves_ToWh_EaDe00_16IV2015_4658_split_10_14.wav,0,0
@@ -394,7 +383,6 @@ Aves_107Terreb31FR_28V2020_0700_split_25_30.wav,0,0
 Aves_JoCa_UnPa00ES_16II2015_4691_split_25_30.wav,0,0
 Orthoptera_meclcar09FR_20VII2023_1366_split_15_20.wav,1,1
 Aves_137Alan31FR_29V2020_0700_split_15_20.wav,0,0
-Aves_ElA_ElHe00NO_03VI2013_4574_split_10_15.wav,0,0
 Aves_JoCa_UnPa00ES_01II2015_4679_split_0_5.wav,0,0
 Aves_KrDe_AwSw00PL_16VII2014_4613_split_165_170.wav,1,0
 Aves_KlCo_ScHo00DE_01VI1964_4539_split_5_10.wav,0,0
@@ -414,7 +402,6 @@ Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1367_split_75_80.wav,1,1
 Aves_MiPe_GaNe00DE_29V2014_4636_split_175_180.wav,0,0
 Aves_124Montou31FR_28V2020_0000_split_30_35.wav,0,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_125_130.wav,1,1
-Aves_Yves_XXXX00FR_21V2021_4560_split_10_15.wav,0,0
 Aves_223Orlu09FR_28VI2022_0006_split_30_35.wav,0,0
 Aves_93Cassag31FR_18V2021_1300_split_5_10.wav,0,0
 Aves_JoCa_LoDe00ES_15I2014_4668_split_35_40.wav,0,0
@@ -470,7 +457,7 @@ Aves_201Sentei09FR_17VI2022_1252_split_50_55.wav,0,0
 Aves_103Terreb31FR_28V2020_0000_split_20_25.wav,0,0
 Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_120_125.wav,1,1
 Aves_KaFr_Schn00DE_XXXXXXXX_4623_split_0_5.wav,0,0
-Hemiptera_cobocol00ES_25VI2023_1251_split_5_10.wav,1,0
+Hemiptera_cobocol00ES_25VI2023_1251_split_5_10.wav,1,1
 Aves_JoCa_LoDe00ES_15I2014_4668_split_10_15.wav,0,0
 Aves_59Boussa31FR_17VI2019_0700_split_20_25.wav,0,0
 Aves_StFi_SiFi00FI_06V2013_4609_split_110_114.wav,0,0
@@ -481,10 +468,10 @@ Orthoptera_DaSa_EsCaMon00ES_25IX2023_1635_split_40_45.wav,0,0
 Aves_113Cassag31FR_18V2021_0700_split_45_50.wav,0,0
 Aves_PiSz_KoNi00PL_16VI2013_4533_split_0_5.wav,0,0
 Aves_137Alan31FR_29V2020_0700_split_10_15.wav,0,0
-Hemiptera_foviesp00ES_24VI2023_1229_split_0_5.wav,1,1
+Hemiptera_foviesp00ES_24VI2023_1229_split_0_5.wav,1,0
 Aves_BeBo_MoPy00FR_01X2014_4622_split_15_20.wav,0,0
 Aves_137Alan31FR_29V2020_0700_split_40_45.wav,0,0
-Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_35_40.wav,1,1
+Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_35_40.wav,1,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_40_45.wav,0,0
 Orthoptera_DaSa_VaLoSau09FR_05IX2023_1578_split_65_70.wav,1,1
 Orthoptera_DaSa_BaToFto00ES_27IX2023_1639_split_70_75.wav,0,0
@@ -498,7 +485,6 @@ Orthoptera_rnraaul65FR_17VII2024_1614_split_30_35.wav,1,1
 Aves_PeBo_UiPo00BE_20V2007_4690_split_45_50.wav,0,0
 Aves_KrDe_ElWi00PL_29IV2014_4615_split_30_35.wav,0,0
 Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_70_75.wav,1,1
-Aves_KlCo_ScHo00DE_01VI1964_4576_split_20_23.wav,0,0
 Aves_ElA_HoCo00NO_20VI2014_4639_split_5_10.wav,0,0
 Aves_6Benque31FR_06V2021_0700_split_0_5.wav,0,0
 Aves_138Alan31FR_29V2020_1300_split_40_45.wav,0,0
@@ -533,12 +519,10 @@ Hymenoptera_crcatou31FR_15IX2022_644_split_5_10.wav,0,0
 Aves_EdSc_ZwWe00BE_XXXXXXXX_4538_split_10_15.wav,0,0
 Aves_8Benque31FR_28V2020_0700_split_40_45.wav,0,0
 Aves_217Bonac-09FR_28VI2022_2346_split_35_40.wav,0,0
-Aves_JoCa_CrDe00ES_26V2012_4565_split_25_30.wav,0,0
 Aves_BeBo_MoPy00FR_01X2014_4622_split_30_35.wav,0,0
 Aves_201Sentei09FR_17VI2022_1252_split_35_40.wav,0,0
 Orthoptera_DaSa_BaToFto00ES_27IX2023_1639_split_120_125.wav,1,1
 Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_150_155.wav,1,1
-Aves_JoCa_CrDe00ES_26V2012_4565_split_75_80.wav,0,0
 Orthoptera_JuBa_SeDi2AFR_29VIII2020_4133_split_5_10.wav,1,1
 Aves_HaGr_BlBl00NL_10IX1992_4530_split_5_10.wav,0,0
 Aves_MiPe_GaNe00DE_29V2014_4636_split_35_40.wav,0,0
@@ -563,7 +547,7 @@ Aves_KrDe_ElWi00PL_29IV2014_4615_split_70_75.wav,0,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1367_split_20_25.wav,1,1
 Aves_MiPe_GaNe00DE_29V2014_4636_split_120_125.wav,0,0
 Aves_KlCo_ScHo00DE_01VI1964_4539_split_0_5.wav,0,0
-Hemiptera_foviesp00ES_24VI2023_1229_split_15_20.wav,1,1
+Hemiptera_foviesp00ES_24VI2023_1229_split_15_20.wav,1,0
 Aves_KrDe_AwSw00PL_16VII2014_4613_split_150_155.wav,1,0
 Aves_185Barjac09FR_15VI2022_0700_split_50_55.wav,0,0
 Orthoptera_DaSa_CaLaBie00ES_03X2023_1679_split_40_45.wav,1,1
@@ -577,7 +561,6 @@ Aves_KlCo_Mell00DE_25VII1978_4685_split_50_55.wav,0,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_25_30.wav,0,0
 Orthoptera_DaSa_CoCoSei09FR_08X2023_1692_split_15_20.wav,1,1
 Hemiptera_cobocol00ES_25VI2023_1251_split_25_30.wav,1,1
-Aves_JoCa_CrDe00ES_26V2012_4565_split_85_90.wav,0,0
 Aves_157StElix-31FR_29V2020_0000_split_40_45.wav,1,0
 Aves_JoCa_UnPa00ES_16II2015_4691_split_0_5.wav,0,0
 Aves_213Cassou09FR_07VII2022_1309_split_40_45.wav,1,0
@@ -589,7 +572,7 @@ Aves_75Benque31FR_29V2020_1300_split_10_15.wav,0,0
 Aves_152Aurign31FR_29V2020_0700_split_45_50.wav,0,0
 Aves_188Franco31FR_17VI2022_0700_split_30_35.wav,0,0
 Orthoptera_DaSa_VaLoSau09FR_05IX2023_1578_split_55_60.wav,1,1
-Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_40_45.wav,1,1
+Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_40_45.wav,1,0
 Orthoptera_DaSa_CaLaBie00ES_03X2023_1679_split_10_15.wav,0,0
 Orthoptera_DaSa_ReAnSah00ES_28IX2023_1645_split_60_65.wav,1,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_115_120.wav,1,1
@@ -607,7 +590,6 @@ Aves_KrDe_AwSw00PL_16VII2014_4613_split_10_15.wav,0,0
 Hymenoptera_crcatou31FR_17X2022_820_split_5_10.wav,0,0
 Hymenoptera_crcatou31FR_17X2022_819_split_15_20.wav,0,0
 Orthoptera_DaSa_LeRuMon09FR_05VIII2023_1410_split_10_12.wav,1,1
-Aves_Yves_XXXX00FR_21V2021_4560_split_15_20.wav,0,0
 Aves_MiPe_GaNe00DE_29V2014_4636_split_105_110.wav,0,0
 Aves_229Seix09FR_23VI2022_0009_split_35_40.wav,0,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_30_35.wav,1,1
@@ -641,7 +623,6 @@ Hemiptera_cagrcer00ES_25VI2023_1256_split_5_10.wav,1,1
 Aves_152Aurign31FR_29V2020_0700_split_35_40.wav,0,0
 Aves_188Franco31FR_17VI2022_0700_split_15_20.wav,0,0
 Orthoptera_DaSa_CoCoSei09FR_08X2023_1693_split_55_60.wav,1,1
-Aves_JoCa_CrDe00ES_26V2012_4565_split_55_60.wav,0,0
 Hemiptera_pafiiso00ES_25VI2023_1244_split_10_15.wav,1,1
 Aves_96Boussa31FR_22IV2019_1300_split_20_25.wav,0,0
 Hemiptera_RaCa_XXXX00ES_03VII2022_3111_split_5_10.wav,1,0
@@ -653,7 +634,7 @@ Orthoptera_DaSa_ReAnSah00ES_28IX2023_1645_split_20_25.wav,1,1
 Aves_St_Frih00NO_26V2013_4593_split_30_35.wav,0,0
 Orthoptera_DaSa_ReAnSah00ES_28IX2023_1645_split_100_105.wav,1,1
 Aves_KlCo_ScHo00DE_01VI1964_4543_split_10_15.wav,0,0
-Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_25_30.wav,1,1
+Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_25_30.wav,1,0
 Aves_152Aurign31FR_29V2020_0700_split_40_45.wav,0,0
 Hymenoptera_crcatou31FR_15IX2022_642_split_0_3.wav,0,0
 Aves_ThBr_Hrfe00AT_27IV1975_4599_split_20_21.wav,0,0
@@ -726,7 +707,6 @@ Aves_183Aurade32FR_03VI2022_1300_split_30_35.wav,1,0
 Orthoptera_DaSa_VaLoSau09FR_05IX2023_1578_split_60_65.wav,1,1
 Aves_PeBo_UiPo00BE_20V2007_4690_split_15_20.wav,0,0
 Aves_53StAndre31FR_25IV2019_0000_split_45_50.wav,0,0
-Aves_ElA_ElHe00NO_03VI2013_4574_split_20_25.wav,0,0
 Hymenoptera_crcatou31FR_17X2022_822_split_0_5.wav,0,0
 Aves_KaFr_Schn00DE_XXXXXXXX_4620_split_0_5.wav,0,0
 Orthoptera_DaSa_ReAnSah00ES_28IX2023_1645_split_120_125.wav,1,1
@@ -742,7 +722,6 @@ Aves_217Bonac-09FR_28VI2022_2346_split_40_45.wav,0,0
 Orthoptera_DaSa_VaLoSau09FR_05IX2023_1578_split_10_15.wav,1,1
 Hemiptera_pafiiso00ES_25VI2023_1244_split_15_20.wav,1,0
 Aves_LaLa_KuMa00PL_12V2012_4589_split_35_40.wav,0,0
-Aves_JoCa_CrDe00ES_26V2012_4565_split_50_55.wav,0,0
 Aves_St_Frih00NO_26V2013_4593_split_0_5.wav,0,0
 Aves_23Samoui31FR_03V2021_0700_split_25_30.wav,0,0
 Aves_41Benque31FR_17VI2019_0700_split_25_30.wav,0,0
@@ -778,7 +757,6 @@ Aves_124Montou31FR_28V2020_0000_split_55_60.wav,0,0
 Orthoptera_DaSa_VaLoSau09FR_05IX2023_1578_split_15_20.wav,1,1
 Aves_Jfgo_XXXX00PL_04V2020_4531_split_5_10.wav,0,0
 Aves_KrDe_ElWi00PL_29IV2014_4615_split_95_100.wav,0,0
-Aves_KlCo_ScHo00DE_01VI1964_4576_split_15_20.wav,0,0
 Hemiptera_RaCa_XXXX00ES_03VII2022_3111_split_20_25.wav,1,0
 Orthoptera_DaSa_EsCaMon00ES_25IX2023_1635_split_15_20.wav,0,0
 Aves_230Seix09FR_23VI2022_0709_split_45_50.wav,0,0
@@ -791,7 +769,6 @@ Aves_StFi_SiFi00FI_06V2013_4609_split_105_110.wav,0,0
 Aves_KrDe_AwSw00PL_16VII2014_4613_split_0_5.wav,0,0
 Aves_PiSz_KoNi00PL_16VI2013_4533_split_25_30.wav,0,0
 Aves_223Orlu09FR_28VI2022_0006_split_25_30.wav,0,0
-Aves_ElA_ElHe00NO_03VI2013_4574_split_30_35.wav,0,0
 Aves_PeBo_UiPo00BE_20V2007_4690_split_25_30.wav,0,0
 Aves_97Boussa31FR_18VI2019_0000_split_10_15.wav,1,0
 Aves_53StAndre31FR_25IV2019_0000_split_40_45.wav,0,0
@@ -832,7 +809,7 @@ Orthoptera_DaSa_ErEsPar00ES_02X2023_1673_split_25_30.wav,1,1
 Aves_KrDe_AwSw00PL_16VII2014_4613_split_105_110.wav,0,0
 Aves_PaAl_OuDe00PT_10X2013_4656_split_30_33.wav,0,0
 Orthoptera_DaSa_FoToFto00ES_24IX2023_1629_split_0_5.wav,1,1
-Orthoptera_DaSa_CaLaBie00ES_03X2023_1679_split_55_60.wav,1,1
+Orthoptera_DaSa_CaLaBie00ES_03X2023_1679_split_55_60.wav,1,0
 Aves_226Mijane09FR_22V2022_2347_split_40_45.wav,0,0
 Mammalia_rnraaul65FR_16VII2024_1561_split_0_5.wav,0,0
 Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_15_20.wav,1,0
@@ -843,7 +820,7 @@ Aves_MaDr_LoPo00IT_01I2005_4647_split_25_30.wav,0,0
 Aves_113Cassag31FR_18V2021_0700_split_35_40.wav,0,0
 Aves_201Sentei09FR_17VI2022_1252_split_30_35.wav,0,0
 Aves_89Terreb31FR_28V2020_0700_split_15_20.wav,0,0
-Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_50_55.wav,1,0
+Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_50_55.wav,1,1
 Hemiptera_RaCa_XXXX00ES_03VII2022_3111_split_15_20.wav,1,0
 Aves_HaGr_BlBl00NL_10IX1992_4530_split_15_20.wav,0,0
 Orthoptera_DaSa_LeRuMon09FR_05VIII2023_1410_split_5_10.wav,1,1
@@ -929,24 +906,19 @@ Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_0_5.wav,1,1
 Aves_124Montou31FR_28V2020_0000_split_35_40.wav,0,0
 Orthoptera_JuBa_ChAn19FR_06IX2019_4131_split_5_10.wav,1,0
 Aves_KaFr_Schn00DE_XXXXXXXX_4620_split_10_15.wav,0,0
-Aves_JoCa_CrDe00ES_26V2012_4565_split_30_35.wav,0,0
 Aves_95Boussa31FR_22IV2019_0700_split_45_50.wav,0,0
 Mammalia_rnraaul65FR_16VII2024_1568_split_0_5.wav,0,0
-Aves_ElA_ElHe00NO_03VI2013_4574_split_35_40.wav,0,0
 Orthoptera_DaSa_CoCoSei09FR_08X2023_1693_split_35_40.wav,1,1
 Aves_33StAndre31FR_25IV2019_0700_split_35_40.wav,0,0
-Aves_JoCa_CrDe00ES_26V2012_4565_split_40_45.wav,0,0
 Aves_PeBo_NuEe00NL_16IV2011_4686_split_5_10.wav,0,0
 Aves_8Benque31FR_28V2020_0700_split_15_20.wav,0,0
 Aves_95Boussa31FR_22IV2019_0700_split_20_25.wav,0,0
 Aves_230Seix09FR_23VI2022_0709_split_35_40.wav,0,0
 Orthoptera_DaSa_CoCoSei09FR_08X2023_1693_split_75_80.wav,1,1
 Aves_224Orlu09FR_28VI2022_0706_split_0_5.wav,0,0
-Aves_KlCo_ScHo00DE_01VI1964_4576_split_0_5.wav,0,0
 Aves_198Bethma09FR_22VI2022_1258_split_30_35.wav,0,0
 Aves_226Mijane09FR_22V2022_2347_split_0_5.wav,0,0
 Aves_MiPe_GaNe00DE_29V2014_4636_split_145_150.wav,0,0
-Aves_Yves_XXXX00FR_21V2021_4560_split_20_24.wav,0,0
 Aves_97Boussa31FR_18VI2019_0000_split_20_25.wav,1,1
 Aves_100Boussa31FR_18VI2019_0000_split_10_15.wav,1,0
 Aves_107Terreb31FR_28V2020_0700_split_10_15.wav,0,0
@@ -976,7 +948,7 @@ Orthoptera_DaSa_CaLaBie00ES_03X2023_1679_split_5_10.wav,1,1
 Aves_95Boussa31FR_22IV2019_0700_split_5_10.wav,0,0
 Aves_205Ustou09FR_28VI2022_0006_split_10_15.wav,0,0
 Aves_83Boussa31FR_18VI2019_0700_split_10_15.wav,1,0
-Aves_73Benque31FR_29V2020_0000_split_40_45.wav,1,0
+Aves_73Benque31FR_29V2020_0000_split_40_45.wav,1,1
 Aves_KrDe_ElWi00PL_29IV2014_4615_split_90_95.wav,0,0
 Aves_201Sentei09FR_17VI2022_1252_split_40_45.wav,0,0
 Aves_KrDe_AwSw00PL_16VII2014_4613_split_180_185.wav,1,0
@@ -1002,8 +974,6 @@ Aves_KlCo_Mell00DE_25VII1978_4685_split_45_50.wav,0,0
 Aves_110Cassag31FR_22V2019_0700_split_10_15.wav,0,0
 Aves_138Alan31FR_29V2020_1300_split_30_35.wav,0,0
 Aves_KlCo_Mell00DE_25VII1978_4685_split_25_30.wav,0,0
-Aves_JoCa_CrDe00ES_26V2012_4565_split_10_15.wav,0,0
-Aves_ToWu_StSa00DE_XXXXXXXX_4571_split_15_20.wav,0,0
 Aves_229Seix09FR_23VI2022_0009_split_5_10.wav,0,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1367_split_70_75.wav,1,1
 Aves_MiPe_GaNe00DE_29V2014_4636_split_15_20.wav,0,0
@@ -1040,7 +1010,6 @@ Aves_JoCa_UnPa00ES_16II2015_4691_split_10_15.wav,0,0
 Aves_75Benque31FR_29V2020_1300_split_35_40.wav,0,0
 Aves_Aemm_XXXX00_26VI2021_4653_split_5_10.wav,0,0
 Aves_183Aurade32FR_03VI2022_1300_split_50_55.wav,1,0
-Aves_ElA_ElHe00NO_03VI2013_4574_split_25_30.wav,0,0
 Orthoptera_DaSa_ReAnSah00ES_28IX2023_1645_split_15_20.wav,1,1
 Aves_205Ustou09FR_28VI2022_0006_split_55_60.wav,0,0
 Aves_KrDe_ElWi00PL_29IV2014_4615_split_55_60.wav,0,0
@@ -1095,7 +1064,7 @@ Aves_KrDe_AwSw00PL_16VII2014_4613_split_40_45.wav,1,0
 Aves_138Alan31FR_29V2020_1300_split_35_40.wav,0,0
 Aves_93Cassag31FR_18V2021_1300_split_20_25.wav,0,0
 Orthoptera_DaSa_EsCaMon00ES_25IX2023_1635_split_50_55.wav,0,0
-Aves_213Cassou09FR_07VII2022_1309_split_10_15.wav,1,0
+Aves_213Cassou09FR_07VII2022_1309_split_10_15.wav,1,1
 Aves_TeKo_TrNo00_21V2015_4670_split_0_5.wav,0,0
 Aves_96Boussa31FR_22IV2019_1300_split_10_15.wav,0,0
 Orthoptera_DaSa_LePoMon09FR_15VII2023_1345_split_5_10.wav,1,0
@@ -1128,7 +1097,6 @@ Aves_110Cassag31FR_22V2019_0700_split_45_50.wav,0,0
 Orthoptera_DaSa_CoCoSei09FR_08X2023_1693_split_10_15.wav,1,1
 Orthoptera_DaSa_EmMeLFu00ES_26IX2023_1636_split_40_45.wav,1,1
 Aves_138Alan31FR_29V2020_1300_split_55_60.wav,0,0
-Aves_JoCa_CrDe00ES_26V2012_4565_split_45_50.wav,0,0
 Aves_103Terreb31FR_28V2020_0000_split_5_10.wav,0,0
 Aves_41Benque31FR_17VI2019_0700_split_0_5.wav,0,0
 Hemiptera_cobocol00ES_25VI2023_1251_split_20_25.wav,1,1
@@ -1152,7 +1120,7 @@ Aves_StFi_SiFi00FI_06V2013_4609_split_95_100.wav,0,0
 Orthoptera_DaSa_CoCoSei09FR_08X2023_1693_split_65_70.wav,1,1
 Aves_PaFr_BaKh00MN_02VI2013_4526_split_0_5.wav,0,0
 Aves_213Cassou09FR_07VII2022_1309_split_15_20.wav,1,0
-Hemiptera_cobocol00ES_25VI2023_1251_split_35_40.wav,1,1
+Hemiptera_cobocol00ES_25VI2023_1251_split_35_40.wav,1,0
 Aves_6Benque31FR_06V2021_0700_split_20_25.wav,0,0
 Aves_223Orlu09FR_28VI2022_0006_split_15_20.wav,0,0
 Orthoptera_DaSa_ErEsPar00ES_02X2023_1673_split_10_15.wav,1,1
@@ -1171,14 +1139,11 @@ Aves_St_Frih00NO_26V2013_4593_split_15_20.wav,0,0
 Aves_BeBo_MoPy00FR_01X2014_4622_split_45_47.wav,0,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_105_110.wav,1,1
 Aves_MiPe_GaNe00DE_29V2014_4636_split_170_175.wav,0,0
-Aves_JoCa_CrDe00ES_26V2012_4565_split_70_75.wav,0,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_90_95.wav,1,0
 Aves_185Barjac09FR_15VI2022_0700_split_25_30.wav,0,0
-Aves_KlCo_ScHo00DE_01VI1964_4576_split_5_10.wav,0,0
 Orthoptera_DaSa_FoToFto00ES_24IX2023_1629_split_5_10.wav,1,1
 Orthoptera_DaSa_EmMeLFu00ES_26IX2023_1636_split_5_10.wav,1,1
 Aves_115Montou31FR_29V2020_0000_split_55_60.wav,0,0
-Aves_ElA_ElHe00NO_03VI2013_4574_split_0_5.wav,0,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1367_split_95_100.wav,1,1
 Aves_70StAndre31FR_28V2020_1300_split_40_45.wav,0,0
 Aves_StFi_SiFi00FI_06V2013_4609_split_55_60.wav,0,0
@@ -1190,26 +1155,22 @@ Aves_124Montou31FR_28V2020_0000_split_10_15.wav,0,0
 Orthoptera_DaSa_ReAnSah00ES_28IX2023_1645_split_85_90.wav,1,0
 Aves_96Boussa31FR_22IV2019_1300_split_40_45.wav,0,0
 Orthoptera_DaSa_CoCoSei09FR_08X2023_1692_split_60_62.wav,1,1
-Aves_JoCa_CrDe00ES_26V2012_4565_split_15_20.wav,0,0
 Orthoptera_DaSa_EmMeLFu00ES_26IX2023_1636_split_35_40.wav,1,1
 Aves_22Samoui31FR_03V2021_0000_split_40_45.wav,0,0
 Orthoptera_DaSa_EmMeLFu00ES_26IX2023_1636_split_30_35.wav,1,1
 Aves_113Cassag31FR_18V2021_0700_split_50_55.wav,0,0
 Aves_183Aurade32FR_03VI2022_1300_split_5_10.wav,1,0
-Aves_ToWu_StSa00DE_XXXXXXXX_4571_split_10_15.wav,0,0
 Orthoptera_DaSa_EmMeLFu00ES_26IX2023_1636_split_60_65.wav,0,0
 Hemiptera_pafiiso00ES_25VI2023_1244_split_0_5.wav,1,1
 Aves_JoCa_UnPa00ES_01II2015_4679_split_5_8.wav,0,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_140_145.wav,1,1
 Aves_200Sentei09FR_17VI2022_0652_split_40_45.wav,0,0
 Aves_97Boussa31FR_18VI2019_0000_split_55_60.wav,1,0
-Aves_KlCo_ScHo00DE_01VI1964_4576_split_10_15.wav,0,0
 Aves_185Barjac09FR_15VI2022_0700_split_0_5.wav,0,0
 Aves_MiPe_GaNe00DE_29V2014_4636_split_200_205.wav,0,0
 Aves_53StAndre31FR_25IV2019_0000_split_0_5.wav,0,0
 Aves_81Cassag31FR_14V2019_0700_split_40_45.wav,0,0
 Aves_MaDr_LoPo00IT_01I2005_4647_split_0_5.wav,0,0
-Aves_ToWu_StSa00DE_XXXXXXXX_4571_split_5_10.wav,0,0
 Aves_KaFr_Schn00DE_XXXXXXXX_4620_split_15_19.wav,0,0
 Aves_MiPe_GaNe00DE_29V2014_4636_split_135_140.wav,0,0
 Aves_89Terreb31FR_28V2020_0700_split_10_15.wav,0,0
@@ -1244,7 +1205,6 @@ Orthoptera_DaSa_CaLaBie00ES_03X2023_1679_split_15_20.wav,0,0
 Aves_MiPe_GaNe00DE_29V2014_4636_split_110_115.wav,0,0
 Aves_JoCa_LoDe00ES_15I2014_4668_split_15_20.wav,0,0
 Orthoptera_DaSa_BaToFto00ES_27IX2023_1639_split_35_40.wav,0,0
-Aves_ToWu_StSa00DE_XXXXXXXX_4571_split_20_22.wav,0,0
 Aves_110Cassag31FR_22V2019_0700_split_35_40.wav,0,0
 Aves_229Seix09FR_23VI2022_0009_split_45_50.wav,0,0
 Orthoptera_DaSa_ErEsPar00ES_02X2023_1673_split_30_35.wav,1,1
@@ -1265,7 +1225,6 @@ Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_110_115.wav,1,1
 Aves_226Mijane09FR_22V2022_2347_split_15_20.wav,0,0
 Aves_94Boussa31FR_22IV2019_0000_split_40_45.wav,0,0
 Aves_213Cassou09FR_07VII2022_1309_split_0_5.wav,1,0
-Aves_JoCa_CrDe00ES_26V2012_4565_split_80_85.wav,0,0
 Aves_Chri_XXXX00DE_01IV2021_4673_split_5_10.wav,0,0
 Orthoptera_DaSa_EmMeLFu00ES_26IX2023_1636_split_20_25.wav,1,1
 Orthoptera_DaSa_CoCoSei09FR_08X2023_1693_split_60_65.wav,1,1
@@ -1331,6 +1290,5 @@ Orthoptera_DaSa_ReAnSah00ES_28IX2023_1645_split_10_15.wav,1,1
 Aves_226Mijane09FR_22V2022_2347_split_55_60.wav,0,0
 Orthoptera_DaSa_VaLoSau09FR_05IX2023_1578_split_70_75.wav,1,1
 Aves_MiPe_GaNe00DE_29V2014_4636_split_205_210.wav,0,0
-Aves_Yves_XXXX00FR_21V2021_4560_split_5_10.wav,0,0
 Orthoptera_DaSa_LaPuLGa38FR_21VII2023_1368_split_130_135.wav,1,1
 Aves_93Cassag31FR_18V2021_1300_split_50_55.wav,0,0
