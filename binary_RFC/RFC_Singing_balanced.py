@@ -177,7 +177,7 @@ rf_model.fit(X_train, y_train)
 
 # Make predictions on the validation set
 #y_pred = rf_model.predict(X_valid)
-threshold = 0.5
+threshold = 0.55
 y_pred = rf_model.predict_proba(X_valid)
 y_pred = (y_pred[:, 1] >= threshold).astype(int)
 
