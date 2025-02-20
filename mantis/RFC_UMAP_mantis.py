@@ -116,6 +116,33 @@ plt.legend(title='Is it daytime?', loc='upper right', markerscale=5)
 plt.savefig("mantis_umap_is_daytime.png", dpi=1000, bbox_inches='tight')
 plt.show()
 
-#%% What are my outliers?
+#%% What are my outliers? Copy the files from the ORCHAMP_SON
 df = u_df.loc[(u_df['X'] >= 5.5)]
 df.to_csv('outliers.csv', index=False)
+
+import shutil
+import csv
+# Define paths
+csv_file = "outliers_filenames.csv"  # Update with your CSV file path
+source_folder = "/VOLUMES/ORCHAMP_SON/ORCHAMP_SON_2022/recs/ARM1"  # Update with the folder containing the files
+destination_folder = "/Users/laradiazgarcia/Desktop/Grenoble/mantis/outliers"  # Update with the target folder
+
+# Ensure the destination folder exists
+os.makedirs(destination_folder, exist_ok=True)
+
+# Read the CSV file and copy files
+with open(csv_file, newline='', encoding='utf-8') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        if row:  # Ensure it's not an empty row
+            full_path = row[0].strip()
+            filename = os.path.basename(full_path)  # Extract only the filename
+
+            source_path = os.path.join(source_folder, filename)
+            destination_path = os.path.join(destination_folder, filename)
+
+            if os.path.exists(source_path):
+                shutil.copy2(source_path, destination_path)  # Copy with metadata
+                print(f"Copied: {filename}")
+            else:
+                print(f"File not found: {filename}")
