@@ -65,7 +65,7 @@ print(f"Validation Accuracy: {accuracy:.4f}")
 print(classification_report(y_valid, y_pred))
 
 #%% Predictions on new ORCHAMP embeddings
-data_ORC = pd.read_csv('/Users/laradiazgarcia/Desktop/Grenoble/mantis_home_orchamp_sound_2022_ARM_1520_1.csv', sep=";")
+data_ORC = pd.read_csv('/Users/laradiazgarcia/Desktop/Grenoble/mantis/mantis_home_orchamp_sound_2022_ARM_1520_1.csv', sep=";")
 X_ORC = data_ORC.iloc[:,2:514]
 
 # Make predictions on the ORCHAMP dataset
@@ -101,11 +101,11 @@ plt.show()
 # Extract the hhmmss part from the filename
 data_ORC['time'] = data_ORC['filename'].str.extract(r'_(\d{6})\.wav$')[0]
 u_df['time'] = data_ORC['time'].astype(int)
-# Apply the condition for daytime (060000 to 210000)
-u_df['is_daytime'] = ((u_df['time'] >= 60000) & (u_df['time'] <= 210000)).astype(int)
+# Apply the condition for daytime (060000 to 210000) but it is UTC and should be two hours later!
+u_df['is_daytime'] = ((u_df['time'] >= 40000) & (u_df['time'] <= 190000)).astype(int)
 # Drop the intermediate 'time' column if not needed
-u_df.drop(columns=['time'], inplace=True)
-u_df.columns = ['X', 'Y', 'is_aves', 'is_daytime']
+u_df.drop(columns=['date'], inplace=True)
+u_df.columns = ['X', 'Y', 'is_daytime']
 
 plt.figure()
 sns.scatterplot(data=u_df, x='X', y='Y', hue="is_daytime", palette=['#0f1f99', '#ffa33c'], alpha=0.7, s=1)
@@ -115,6 +115,20 @@ plt.axis('off')
 plt.legend(title='Is it daytime?', loc='upper right', markerscale=5)
 plt.savefig("mantis_umap_is_daytime.png", dpi=1000, bbox_inches='tight')
 plt.show()
+
+#%% UMAP for day of recording
+# Extract the hhmmss part from the filename
+u_df['date'] = u_df['filename'].str.split('_').str[1]
+
+plt.figure()
+sns.scatterplot(data=u_df, x='X', y='Y', hue="date", alpha=0.7, s=1)
+plt.title('UMAP embedding')
+plt.tight_layout()
+plt.axis('off')
+plt.legend(title='What day is it?', loc='upper right', markerscale=5)
+plt.savefig("mantis_umap_date.png", dpi=1000, bbox_inches='tight')
+plt.show()
+
 
 #%% What are my outliers? Copy the files from the ORCHAMP_SON
 df = u_df.loc[(u_df['X'] >= 5.5)]
