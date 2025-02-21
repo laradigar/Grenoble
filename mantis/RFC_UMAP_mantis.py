@@ -24,6 +24,10 @@ import umap
 train_df_with_features = pd.read_csv('train_annotations_singing.csv')
 valid_df_with_features = pd.read_csv('valid_annotations_singing.csv') 
 
+# Check that there is no overlap in the file names between datasets
+def extract_prefix(filename):
+    return "_".join(filename.split("_")[:-3])  # Remove everything after the last 2 underscores
+
 # Create sets of prefixes
 train_prefixes = set(train_df_with_features["filename"].apply(extract_prefix))
 valid_prefixes = set(valid_df_with_features["filename"].apply(extract_prefix))
@@ -80,14 +84,13 @@ y_probs_1 = (y_probs[:,1] >= threshold).astype(int)
 for i, prob in enumerate(y_probs):
     print(f"Sample {i+1}: Class 0 Probability = {prob[0]:.4f}, Class 1 Probability = {prob[1]:.4f}")
 
-
 #%% UMAP
 fit = umap.UMAP()
 u = fit.fit_transform(X_ORC)
 u_df = pd.DataFrame(u)
 u_df["is_aves"] = y_probs_1
 u_df["filename"] = data_ORC["filename"]
-u_df.columns = ['X', 'Y', 'is_aves']
+u_df.columns = ['X', 'Y', 'is_aves', "filename"]
 plt.figure()
 sns.scatterplot(data=u_df, x='X', y='Y', hue="is_aves", palette=['#0f1f99', '#35bc11'], alpha=0.7, s=1)
 plt.title('UMAP embedding')
@@ -104,8 +107,8 @@ u_df['time'] = data_ORC['time'].astype(int)
 # Apply the condition for daytime (060000 to 210000) but it is UTC and should be two hours later!
 u_df['is_daytime'] = ((u_df['time'] >= 40000) & (u_df['time'] <= 190000)).astype(int)
 # Drop the intermediate 'time' column if not needed
-u_df.drop(columns=['date'], inplace=True)
-u_df.columns = ['X', 'Y', 'is_daytime']
+u_df.drop(columns=['time'], inplace=True)
+u_df.columns = ['X', 'Y', 'is_aves', 'filename','is_daytime']
 
 plt.figure()
 sns.scatterplot(data=u_df, x='X', y='Y', hue="is_daytime", palette=['#0f1f99', '#ffa33c'], alpha=0.7, s=1)
